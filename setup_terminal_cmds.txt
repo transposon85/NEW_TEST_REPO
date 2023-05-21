@@ -1,3 +1,10 @@
 #This is a list useful commands when doing a clean install of Linux
 sudo apt update && sudo apt upgrade
 sudo apt install curl git python3 gnome-tweaks
+#This is the procedure for creating a repository remotely:
+#From: https://dev.to/bowmanjd/create-and-initialize-a-new-github-repository-from-the-command-line-85e
+
+curl -u USER https://api.github.com/user/repos -d '{"name":"NEW_REPO_NAME","private":false}'
+git remote add origin CLONE_URL
+git push -u origin main
+see the website for directions. Essentially you will need a token, and then use it as your password. 
