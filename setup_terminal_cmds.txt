@@ -8,3 +8,6 @@ curl -u USER https://api.github.com/user/repos -d '{"name":"NEW_REPO_NAME","priv
 git remote add origin CLONE_URL
 git push -u origin main
 see the website for directions. Essentially you will need a token, and then use it as your password. 
+
+if you want to cache the username and password for a session, use the code:]
+git config --global credential.helper cache
