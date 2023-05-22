@@ -2,7 +2,7 @@
 #Initial package install
 
     sudo apt update && sudo apt upgrade
-    sudo apt install htop curl git python3 python3-pip wl-clipboard gnome-tweaks fuse libfuse2 ack-grep -y
+    sudo apt install htop curl git python3 python3-pip wl-clipboard gnome-tweaks fuse libfuse2 ack-grep
     
 #[1] Git setup
 #This is the procedure for creating a repository remotely:
