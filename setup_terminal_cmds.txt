@@ -1,13 +1,54 @@
 #This is a list useful commands when doing a clean install of Linux
-sudo apt update && sudo apt upgrade
-sudo apt install curl git python3 gnome-tweaks
+#Initial package install
+
+    sudo apt update && sudo apt upgrade
+    sudo apt install htop curl git python3 python3-pip wl-clipboard gnome-tweaks fuse libfuse2 ack-grep -y
+    
+#[1] Git setup
 #This is the procedure for creating a repository remotely:
-#From: https://dev.to/bowmanjd/create-and-initialize-a-new-github-repository-from-the-command-line-85e
+#See the website for directions. Need a token to be used as a password.
 
-curl -u USER https://api.github.com/user/repos -d '{"name":"NEW_REPO_NAME","private":false}'
-git remote add origin CLONE_URL
-git push -u origin main
-see the website for directions. Essentially you will need a token, and then use it as your password. 
+    curl -u USER https://api.github.com/user/repos -d '{"name":"NEW_REPO_NAME","private":false}'
+    git remote add origin CLONE_URL
+    git push -u origin main
 
-if you want to cache the username and password for a session, use the code:]
-git config --global credential.helper cache
+#If you want to cache the username and password for a session, use the code:
+
+    git config --global credential.helper cache
+
+#[2] Neovim
+  #Note: the wl-clipboard above is for a clipboard in nvim, and fuse is so that we can use this appimage.
+  
+    wget --quiet https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage --output-document nvim
+    chmod +x nvim
+    sudo chown root:root nvim
+    sudo mv nvim /usr/bin
+    cd ~
+    mkdir -p .config/nvim
+
+#[3] Brave
+
+    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+    sudo apt update
+    sudo apt install brave-browser
+
+[4] Make Neovim main editor
+
+    sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 100 && \
+    sudo update-alternatives --set editor /usr/bin/nvim
+
+    sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 100 && \
+    sudo update-alternatives --set vi /usr/bin/nvim
+
+
+Reference URLs:
+
+[1] https://dev.to/bowmanjd/create-and-initialize-a-new-github-repository-from-the-command-line-85e
+[2] https://www.linode.com/docs/guides/how-to-install-neovim-and-plugins-with-vim-plug/
+[3] https://brave.com/linux/
+[4] https://askubuntu.com/questions/891928/how-can-i-add-my-desired-editor-to-the-update-alternatives-interactive-menu
+      https://man7.org/linux/man-pages/man1/update-alternatives.1.html (This is more info on update-alternatives)
+
+#Other Reference URLs
+    https://averagelinuxuser.com/how-to-format-bootable-usb-to-normal/
