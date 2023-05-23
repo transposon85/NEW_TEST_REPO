@@ -6,7 +6,7 @@ https://askubuntu.com/questions/1026528/adding-custom-programs-to-favourites-of-
 
     set -o vi
     sudo apt update && sudo apt upgrade
-    sudo apt install htop curl git python3 python3-pip wl-clipboard gnome-tweaks fuse libfuse2 ack-grep plocate vifm wl-copy tree
+    sudo apt install htop curl git python3 python3-pip wl-clipboard gnome-tweaks fuse libfuse2 ack-grep plocate vifm wl-copy tree neofetch
     sudo snap install brave
     
 #[1] Git setup
