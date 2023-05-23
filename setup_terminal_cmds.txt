@@ -82,3 +82,4 @@ Reference URLs:
     https://averagelinuxuser.com/how-to-format-bootable-usb-to-normal/
     https://askubuntu.com/questions/1026528/adding-custom-programs-to-favourites-of-ubuntu-dock
     https://github.com/Jelmerro/Vieb/releases/download/9.7.1/Vieb-9.7.1.AppImage
+    https://stegosaurusdormant.com/bare-git-repo/
