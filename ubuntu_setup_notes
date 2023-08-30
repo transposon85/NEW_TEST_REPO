@@ -1,0 +1,123 @@
+#This is a list useful commands when doing a clean install of Linux
+#Initial package install
+#Installing brave as a snap because it doesn't constantly ask for keyring pw. But will always ask to be default browser
+https://askubuntu.com/questions/1026528/adding-custom-programs-to-favourites-of-ubuntu-dock
+#First command, make bash behave like vim
+
+    set -o vi
+    sudo apt update && sudo apt upgrade
+    sudo apt install htop curl git python3 python3-pip wl-clipboard gnome-tweaks fuse libfuse2 ack-grep plocate vifm wl-copy tree neofetch
+    sudo snap install brave
+    
+#[1] Git setup
+#This is the procedure for creating a repository remotely:
+#See the website for directions. Need a token to be used as a password.
+
+    curl -u USER https://api.github.com/user/repos -d '{"name":"NEW_REPO_NAME","private":false}'
+    git remote add origin CLONE_URL
+    git push -u origin main
+
+#If you want to cache the username and password for a session, use the code:
+
+    git config --global credential.helper cache
+
+#[2] Neovim
+  #Note: the wl-clipboard above is for a clipboard in nvim, and fuse is so that we can use this appimage.
+  
+    wget --quiet https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage --output-document nvim
+    chmod +x nvim
+    sudo chown root:root nvim
+    sudo mv nvim /usr/bin
+    cd ~
+    mkdir -p .config/nvim
+
+#No longer installing brave like this, because of keyring annoyances. But the following is how Brave recommends install.
+#[3] Brave
+
+#    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+#    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+#   sudo apt update
+# sudo apt install brave-browser
+
+#[4] Make Neovim main editor
+#The first two commands makes nvim editor, and the second two are for the vi alias.
+
+    sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 100 && \
+    sudo update-alternatives --set editor /usr/bin/nvim
+
+    sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 100 && \
+    sudo update-alternatives --set vi /usr/bin/nvim
+
+
+#[5] To make executeables searchable, or to pin them to quick launch-
+#Add this file to usr/share/applications with the name <app name>.desktop:
+#Add the icon tottps://askubuhttps://askubuntu.com/questions/1026528/adding-custom-programs-to-favourites-of-ubuntu-dock usr/
+
+        [Desktop Entry]
+        Type=Application
+        Encoding=UTF-8
+        Name=MyApplication
+        Comment=My fancy new application
+        Exec=path/to/my_application
+        Icon=my_application.png
+        Terminal=false
+
+#To make the file have permission run:
+chmod +x <name>.desktop
+
+#[6] Install nordvpn
+#If you have permission denied after nordvpn login, then run the second command and reboot.
+
+        sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
+        sudo usermod -aG nordvpn $USER
+
+
+#Notes:
+#This is an example .inputrc
+
+        # Include any system-wide bindings and variable
+        # assignments from /etc/inputrc
+        $include /etc/inputrc
+
+        #"\C-p":history-search-backward
+        #"\C-n":history-search-forward
+
+        #Some stuff I found...
+        set colored-stats On
+        set completion-ignore-case On
+        set completion-prefix-display-length 3
+        set mark-symlinked-directories On
+        set show-all-if-ambiguous On
+        set show-all-if-unmodified On
+        set visible-stats On
+
+        # use a visible bell if one is available
+        set bell-style visible
+
+        # if there are 150 or more possible completions for a word,
+        # ask whether or not the user wants to see all of them
+        set completion-query-items 150
+
+        #vim settings
+        set keymap vi
+        set editing-mode vi
+        set show-mode-in-prompt on
+        set vi-ins-mode-string \1\e[6 q\2
+        set vi-cmd-mode-string \1\e[2 q\2
+        # The numbers after e[ can be changed for different cursors, like block, underline, blinking block etc.
+
+Reference URLs:
+
+[1] https://dev.to/bowmanjd/create-and-initialize-a-new-github-repository-from-the-command-line-85e
+[2] https://www.linode.com/docs/guides/how-to-install-neovim-and-plugins-with-vim-plug/
+[3] https://brave.com/linux/
+[4] https://askubuntu.com/questions/891928/how-can-i-add-my-desired-editor-to-the-update-alternatives-interactive-menu
+      https://man7.org/linux/man-pages/man1/update-alternatives.1.html (This is more info on update-alternatives)
+[5] https://askubuntu.com/questions/1026528/adding-custom-programs-to-favourites-of-ubuntu-dock
+[6] https://support.nordvpn.com/Connectivity/Linux/1325531132/Installing-and-using-NordVPN-on-Debian-Ubuntu-Raspberry-Pi-Elementary-OS-and-Linux-Mint.htm
+
+#Other Reference URLs
+    https://averagelinuxuser.com/how-to-format-bootable-usb-to-normal/
+    https://askubuntu.com/questions/1026528/adding-custom-programs-to-favourites-of-ubuntu-dock
+    https://github.com/Jelmerro/Vieb/releases/download/9.7.1/Vieb-9.7.1.AppImage
+    https://stegosaurusdormant.com/bare-git-repo/
