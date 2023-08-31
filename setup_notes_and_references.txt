@@ -42,11 +42,18 @@
 
   sudo pacman install xdg-user-dirs
 
+#[7]
+#Once you install open ssh and use ssh-keygen to link to github following the book, create a bare repository following the steps in the links
+
+
+  
 
 [2] https://www.youtube.com/watch?v=V7ABBlXcn0g
 [3] https://superuser.com/questions/566871/how-to-map-the-caps-lock-key-to-escape-key-in-arch-linux
 [5] https://www.youtube.com/watch?v=9piWjL9x4SI&t=4s
 [6] https://wiki.archlinux.org/title/XDG_user_directories
+[7] https://mjones44.medium.com/storing-dotfiles-in-a-git-repository-53f765c0005d
+    https://www.atlassian.com/git/tutorials/dotfiles
 
 #Discussion of .vimrc vs init.vim vs init.lua
   https://neovim.discourse.group/t/looking-for-init-vim-on-windows/996
