@@ -31,11 +31,25 @@
 
   exec_always feh --bg-fill $HOME/Pictures/wallpapers/yourfile.jpg
 
+#[5] 
+# Install audio and supporting programs
+
+  sudo pacman -S pulseaudio
+  sudo pacman -S pulseaudio-alsa
+  sudo pacman -S pavucontrol
+
+#[6]
+
+  sudo pacman install xdg-user-dirs
+
 
 [2] https://www.youtube.com/watch?v=V7ABBlXcn0g
 [3] https://superuser.com/questions/566871/how-to-map-the-caps-lock-key-to-escape-key-in-arch-linux
+[5] https://www.youtube.com/watch?v=9piWjL9x4SI&t=4s
+[6] https://wiki.archlinux.org/title/XDG_user_directories
 
 #Discussion of .vimrc vs init.vim vs init.lua
-https://neovim.discourse.group/t/looking-for-init-vim-on-windows/996
-
+  https://neovim.discourse.group/t/looking-for-init-vim-on-windows/996
+#Discussion of i3 setup
+  https://www.youtube.com/watch?v=77-tuFE_pGc&list=LL&index=4
 
