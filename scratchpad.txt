@@ -1,1 +1,4 @@
 This is a scratchpad to record whatever/useful commands etc.
+
+#This includes lsusb
+sudo pacman -S usbbutils
