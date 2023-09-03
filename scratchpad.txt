@@ -2,3 +2,6 @@ This is a scratchpad to record whatever/useful commands etc.
 
 #This includes lsusb
 sudo pacman -S usbbutils
+
+#Directions for udev script to recognize keyboard being plugged.
+https://opensource.com/article/18/11/udev
