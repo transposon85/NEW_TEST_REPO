@@ -45,7 +45,8 @@
 #[7]
 #Once you install open ssh and use ssh-keygen to link to github following the book, create a bare repository following the steps in the links
 
-
+#[8]
+#You will need to install 'picom' to have transparancy work. You can set up the autostart.sh for qtile to run at startup.
   
 
 [2] https://www.youtube.com/watch?v=V7ABBlXcn0g
