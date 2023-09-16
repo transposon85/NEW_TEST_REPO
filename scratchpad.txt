@@ -5,3 +5,10 @@ sudo pacman -S usbbutils
 
 #Directions for udev script to recognize keyboard being plugged.
 https://opensource.com/article/18/11/udev
+
+#To to update grub boot after changing GRUB_TIMEOUT and commenting out GRUB_TIMEOUT_STYLE in 
+/etc/default/grub
+grub-mkconfig -o /boot/grub/grub.cfg
+
+https://wiki.archlinux.org/title/GRUB#Generate_the_main_configuration_file
+https://www.shellhacks.com/grub_timeout-change-not-working/
