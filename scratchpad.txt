@@ -1,14 +1,36 @@
+This file doesn't seem to be tracked properly in git
 This is a scratchpad to record whatever/useful commands etc.
 
+#this is a cool guide for switching nvim configs
+https://michaeluloth.com/neovim-switch-configs/
+
+#This is a guide to changing directories with fzf
+https://omarelhawary.me/blog/faster-directory-navigation-with-fzf/
+
+#connect to wifi
+  nmcli dev list
+  nmcli wifi connct <network> password <password>
+
+#If you want to use visudo with a different editor (vi not installed).
+#You could also add a symlink from /usr/bin/vi to /usr/bin/nvim, but this probably isn't smart.
+  sudo EDITOR=nvim visudo
+  https://wiki.archlinux.org/title/sudo#Using_visudo
+
 #This includes lsusb
-sudo pacman -S usbbutils
+  sudo pacman -S usbbutils
 
 #Directions for udev script to recognize keyboard being plugged.
-https://opensource.com/article/18/11/udev
+  https://opensource.com/article/18/11/udev
 
 #To to update grub boot after changing GRUB_TIMEOUT and commenting out GRUB_TIMEOUT_STYLE in 
-/etc/default/grub
-grub-mkconfig -o /boot/grub/grub.cfg
+  /etc/default/grub
+  grub-mkconfig -o /boot/grub/grub.cfg
 
 https://wiki.archlinux.org/title/GRUB#Generate_the_main_configuration_file
 https://www.shellhacks.com/grub_timeout-change-not-working/
+
+#Edit .bash_profile and add the following to automatically run startx on login:
+
+  if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+    exec startx
+  fi

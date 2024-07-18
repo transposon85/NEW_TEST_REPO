@@ -1,0 +1,40 @@
+#This is a list of packages worth installing:
+
+#pdf viewer
+zathura
+https://man.cx/zathura
+
+#shorter help docs
+tldr
+
+#quick cli filetree
+tree
+
+#Trash bin for deletes
+trash-cli
+
+#quick info on computer
+fastfetch
+
+#browser
+brave-bin
+
+#Some zip bin like gzip, xz
+https://www.linuxjournal.com/content/linux-file-compression-gzip-bzip2-and-xz-unveiled#:~:text=gzip%3A%20Good%20for%20general%20use,particularly%20for%20very%20large%20files.
+
+#gawk, for some basic cli utility
+gawk
+https://www.youtube.com/watch?v=FbSpuZVb164&t=369s
+
+#Curl for downloads
+curl
+
+#process viewer/manager
+htop
+
+
+
+
+#This is an example of someone's recommendations
+https://github.com/fwcd/arch-pkgs?tab=readme-ov-file
+

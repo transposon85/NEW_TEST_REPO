@@ -1,10 +1,17 @@
 #This is a list useful commands when doing a clean install of Arch Linux
 
+#[0]
+#Install yay, in order to get AUR packages like brave and audio plugins
+
+  cd Downloads/
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
+  makepkg -si
+
 #[1]
 #When partioning drive initially, use cfdisk rather than fdisk. Simply delete all partitions,   create efi 550M partition, swap, and root partitions.
 
 #[2]
-
 #You can update the look of pacman in the pacman config file to make it colorful.
 
   sudo nvim /etc/pacman.conf
@@ -20,6 +27,7 @@
 
 #[3]
 # in the .xinitrc, add to remap capslock to esc. Add before exec i3
+# use the updated setup in the .cfg .xinitrc
 
   setxkbmap -option caps:escape
 
@@ -28,7 +36,7 @@
   sudo pacman -S feh
 
 # Then add this to your i3 config file, and after downloading wallpaper
-
+k
   exec_always feh --bg-fill $HOME/Pictures/wallpapers/yourfile.jpg
 
 #[5] 
@@ -37,6 +45,7 @@
   sudo pacman -S pulseaudio
   sudo pacman -S pulseaudio-alsa
   sudo pacman -S pavucontrol
+  yay -S python-pulsectl-asyncio
 
 #[6]
 
@@ -47,6 +56,15 @@
 
 #[8]
 #You will need to install 'picom' to have transparancy work. You can set up the autostart.sh for qtile to run at startup.
+
+#[9]
+#You will need to update arch, and when you do, you may need to update keyrings
+#This was the final step I did which worked. You may need to do more, like clearing 
+#like clearing the pacman cache, refreshing keys, etc which I also did but didn't appear to help initially.
+  
+  pacman -Sy --needed archlinux-keyring && pacman -Su
+  or
+  pacman -Sy archlinux-keyring && pacman -Su
   
 
 [2] https://www.youtube.com/watch?v=V7ABBlXcn0g
@@ -60,4 +78,6 @@
   https://neovim.discourse.group/t/looking-for-init-vim-on-windows/996
 #Discussion of i3 setup
   https://www.youtube.com/watch?v=77-tuFE_pGc&list=LL&index=4
+#Discussion of steps to do after Arch Linux installation
+  https://averagelinuxuser.com/arch-linux-after-install/
 

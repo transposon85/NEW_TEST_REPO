@@ -32,6 +32,7 @@ https://askubuntu.com/questions/1026528/adding-custom-programs-to-favourites-of-
     mkdir -p .config/nvim
 
 #No longer installing brave like this, because of keyring annoyances. But the following is how Brave recommends install.
+#Instead install brave-bin with yay
 #[3] Brave
 
 #    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
